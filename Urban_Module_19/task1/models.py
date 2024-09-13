@@ -16,3 +16,11 @@ class Game(models.Model):
     buyer = models.ManyToManyField(Buyer, related_name='game')
     DecimalField = models.DecimalField(max_digits=5, decimal_places=2)
     BooleanField = models.BooleanField()
+
+"""
+Связи таблиц - многие ко многим
+>>> Game.objects.get(id=3).buyer.set((1, 2))                      
+>>> Buyer.objects.get(id=3).game.set((1, 2, 3))
+>>> Buyer.objects.get(id=1).game.set((2, 3))    
+
+"""
